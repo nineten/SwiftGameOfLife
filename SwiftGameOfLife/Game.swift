@@ -16,6 +16,11 @@ class Game {
         aliveCells.insert(cell)
     }
     
+    func addCellAtOffset(var cell: Cell, offset: (x: Int,y: Int)) {
+        cell.offsetBy(offset)
+        addCell(cell)
+    }
+    
     // canonical to game of life, each update is a tick
     func tick() {
         // Here we need to update the state of the game according to how Game of Life rules work

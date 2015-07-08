@@ -12,6 +12,10 @@ struct Cell : Hashable, Equatable, CustomStringConvertible {
     var x:Int = 0
     var y:Int = 0
     
+    mutating func offsetBy(offset:(x:Int, y:Int)) {
+        self = Cell(x: x + offset.x, y: y + offset.y)
+    }
+    
     var description: String {
         return "Cell: \(hashValue) -> (\(x), \(y))"
     }
