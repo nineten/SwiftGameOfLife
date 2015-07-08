@@ -18,6 +18,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        backgroundColor = UIColor.whiteColor()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -87,11 +88,7 @@ class GameScene: SKScene {
         return CGPointMake(CGFloat(cell.x) * pixelSize, CGFloat(cell.y) * pixelSize)
     }
     
-    func pressedPaused() {
-        if isGamePaused {
-            isGamePaused = false
-        } else {
-            isGamePaused = true
-        }
+    func setGamePause(state: Bool) {
+        isGamePaused = state
     }
 }

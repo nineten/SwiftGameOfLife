@@ -59,11 +59,12 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func pressedPaused(sender: UIButton) {
-        scene!.pressedPaused()
         if scene!.isGamePaused {
-
+            scene!.setGamePause(false)
+            pauseButton.setTitle("Pause", forState: UIControlState.Normal)
         } else {
-            
+            scene!.setGamePause(true)
+            pauseButton.setTitle("Play", forState: UIControlState.Normal)
         }
     }
 }
