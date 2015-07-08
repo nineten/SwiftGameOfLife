@@ -33,11 +33,45 @@
                                     <action selector="pressedPaused:" destination="BV1-FR-VrT" eventType="touchUpInside" id="49R-NM-RQN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ob-MD-MyV">
+                                <rect key="frame" x="135" y="535" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Y9D-ES-pvQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="lzE-9g-DUC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedZoomIn:" destination="BV1-FR-VrT" eventType="touchUpInside" id="kXR-Bo-cQP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDm-Xx-lOl">
+                                <rect key="frame" x="200" y="535" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aeN-gH-bz4"/>
+                                    <constraint firstAttribute="width" constant="50" id="yxx-jo-55I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedZoomOut:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Z7t-3W-DwM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iiZ-St-uM0" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="33W-Rz-zjF"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="iiZ-St-uM0" secondAttribute="bottom" constant="15" id="FAc-dQ-eHq"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="3ob-MD-MyV" secondAttribute="bottom" constant="15" id="IfM-I8-OBf"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="fDm-Xx-lOl" secondAttribute="bottom" constant="15" id="QX6-Pd-eUf"/>
+                            <constraint firstItem="3ob-MD-MyV" firstAttribute="leading" secondItem="iiZ-St-uM0" secondAttribute="trailing" constant="15" id="XBa-ZW-GOb"/>
+                            <constraint firstItem="fDm-Xx-lOl" firstAttribute="leading" secondItem="3ob-MD-MyV" secondAttribute="trailing" constant="15" id="nmI-lT-ACM"/>
                         </constraints>
                     </view>
                     <connections>

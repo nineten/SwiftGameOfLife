@@ -10,15 +10,16 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    let pixelSize:CGFloat = 20.0
-    let clockSpeed:Double = 0.5
+    var pixelSize:CGFloat = 20.0
+    let clockSpeed:Double = 0.05
     var nextTick:CFTimeInterval?
     var game:Game = Game()
-    var isGamePaused:Bool = false
+    var isGamePaused:Bool = true
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         backgroundColor = UIColor.whiteColor()
+        addExamples()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -45,7 +46,7 @@ class GameScene: SKScene {
                     updateCells()
                     
                     nextTick = currentTime;
-                    print("Tick: \(currentTime)")
+//                    print("Tick: \(currentTime)")
                 }
             } else {
                 // initialise the nextTick timer
@@ -67,6 +68,7 @@ class GameScene: SKScene {
     func updateCells() {
         self.removeAllChildren()
         for cell in game.aliveCells {
+            print(cell)
             createCell(cell)
         }
     }
@@ -90,5 +92,57 @@ class GameScene: SKScene {
     
     func setGamePause(state: Bool) {
         isGamePaused = state
+    }
+    
+    func setZoom(zoom: Float) {
+        pixelSize = pixelSize / CGFloat(zoom)
+        updateCells()
+    }
+    
+    func addExamples(){
+        let offset = 100
+        
+        // Gosper glider gun
+        self.game.addCell(Cell(x: 10, y: 20 + offset))
+        self.game.addCell(Cell(x: 11, y: 21 + offset))
+        self.game.addCell(Cell(x: 10, y: 21 + offset))
+        self.game.addCell(Cell(x: 11, y: 20 + offset))
+        
+        self.game.addCell(Cell(x: 23, y: 23 + offset))
+        self.game.addCell(Cell(x: 22, y: 23 + offset))
+        self.game.addCell(Cell(x: 21, y: 22 + offset))
+        self.game.addCell(Cell(x: 20, y: 21 + offset))
+        self.game.addCell(Cell(x: 20, y: 20 + offset))
+        self.game.addCell(Cell(x: 20, y: 19 + offset))
+        self.game.addCell(Cell(x: 21, y: 18 + offset))
+        self.game.addCell(Cell(x: 22, y: 17 + offset))
+        self.game.addCell(Cell(x: 23, y: 17 + offset))
+        self.game.addCell(Cell(x: 25, y: 18 + offset))
+        self.game.addCell(Cell(x: 26, y: 19 + offset))
+        self.game.addCell(Cell(x: 26, y: 20 + offset))
+        self.game.addCell(Cell(x: 27, y: 20 + offset))
+        self.game.addCell(Cell(x: 24, y: 20 + offset))
+        self.game.addCell(Cell(x: 26, y: 21 + offset))
+        self.game.addCell(Cell(x: 25, y: 22 + offset))
+        
+        self.game.addCell(Cell(x: 30, y: 21 + offset))
+        self.game.addCell(Cell(x: 30, y: 22 + offset))
+        self.game.addCell(Cell(x: 30, y: 23 + offset))
+        self.game.addCell(Cell(x: 31, y: 21 + offset))
+        self.game.addCell(Cell(x: 31, y: 22 + offset))
+        self.game.addCell(Cell(x: 31, y: 23 + offset))
+        self.game.addCell(Cell(x: 32, y: 24 + offset))
+        self.game.addCell(Cell(x: 32, y: 20 + offset))
+        self.game.addCell(Cell(x: 34, y: 25 + offset))
+        self.game.addCell(Cell(x: 34, y: 24 + offset))
+        self.game.addCell(Cell(x: 34, y: 20 + offset))
+        self.game.addCell(Cell(x: 34, y: 19 + offset))
+        
+        self.game.addCell(Cell(x: 44, y: 23 + offset))
+        self.game.addCell(Cell(x: 44, y: 22 + offset))
+        self.game.addCell(Cell(x: 45, y: 23 + offset))
+        self.game.addCell(Cell(x: 45, y: 22 + offset))
+        
+        updateCells()
     }
 }

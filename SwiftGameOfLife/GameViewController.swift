@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
         if (scene != nil) {
             // Configure the view.
             let skView = self.view as! SKView
+            scene!.size = skView.bounds.size
             skView.showsFPS = true
             skView.showsNodeCount = true
             
@@ -66,5 +67,13 @@ class GameViewController: UIViewController {
             scene!.setGamePause(true)
             pauseButton.setTitle("Play", forState: UIControlState.Normal)
         }
+    }
+    
+    @IBAction func pressedZoomIn(sender: UIButton) {
+        scene!.setZoom(2)
+    }
+    
+    @IBAction func pressedZoomOut(sender: UIButton) {
+        scene!.setZoom(0.5)
     }
 }

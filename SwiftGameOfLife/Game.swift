@@ -10,10 +10,10 @@ import Foundation
 
 class Game {
     
-    var aliveCells = [Cell]()
+    var aliveCells = Set<Cell>()
     
     func addCell(cell: Cell) {
-        aliveCells.append(cell)
+        aliveCells.insert(cell)
     }
     
     // canonical to game of life, each update is a tick
@@ -25,21 +25,21 @@ class Game {
 //        4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
         
         var cellsWithNeighbours = countCellsWithNeighbours()
-        var newCells = [Cell]()
+        var newCells = Set<Cell>()
         
         // check the surviving cells in the next tick
         for cell in aliveCells {
             // removing here to prevent duplication of checking in next loop
             let neighbourCount:Int? = cellsWithNeighbours.removeValueForKey(cell)
             if  neighbourCount != nil && (neighbourCount >= 2 && neighbourCount <= 3) {
-                newCells.append(cell)
+                newCells.insert(cell)
             }
         }
         
         // check for new cells in the next tick
         for (cell, neighbourCount) in cellsWithNeighbours {
             if neighbourCount == 3 {
-                newCells.append(cell)
+                newCells.insert(cell)
             }
         }
         
